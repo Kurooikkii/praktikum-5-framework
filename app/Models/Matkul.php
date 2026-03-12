@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Matkul extends Model
 {
-    use HasFactory;
+protected $table = 'matkuls';
+// guarded kebalikan dari fillable
+// guarded dengan array kosong berarti kita bisa mengisi seluruh kolom pada model
+protected $guarded = [];
 }
