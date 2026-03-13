@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('/matkul', [MatkulController::class, 'index']);
+Route::resource('matkul', MatkulController::class);

@@ -9,9 +9,35 @@ class MatkulController extends Controller
 {
     public function index()
     {
-        // Mengambil semua data mahasiswa dari database
-        $matkul = Matkul::all();
-        // Mengirim data ke view
-        return view('matkul.index', compact('matkul'));
+        $matkuls = Matkul::all();
+        return view('matkul.index', compact('matkuls'));
+    }
+
+    public function create()
+    {
+        return view('matkul.create');
+    }
+
+    public function store(Request $request)
+    {
+        Matkul::create($request->all());
+        return redirect()->route('matkul.index')->with('success', 'Matkul berhasil ditambahkan!');
+    }
+
+    public function edit(Matkul $matkul)
+    {
+        return view('matkul.edit', compact('matkul'));
+    }
+
+    public function update(Request $request, Matkul $matkul)
+    {
+        $matkul->update($request->all());
+        return redirect()->route('matkul.index')->with('success', 'Matkul berhasil diupdate!');
+    }
+
+    public function destroy(Matkul $matkul)
+    {
+        $matkul->delete();
+        return redirect()->route('matkul.index')->with('success', 'Matkul berhasil dihapus!');
     }
 }

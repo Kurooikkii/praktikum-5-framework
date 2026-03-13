@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('matkuls', function (Blueprint $table) {
             $table->id();
-            $table->string('npm')->unique();
-            $table->string('nama');
-            $table->string('jurusan');
+            $table->string('kode_matkul')->unique();
+            $table->string('nama_matkul');
+            $table->integer('sks');
+            $table->integer('semester');
             $table->timestamps();
         });
     }

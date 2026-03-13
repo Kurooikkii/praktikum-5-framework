@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Matkul extends Model
 {
-protected $table = 'matkuls';
-// guarded kebalikan dari fillable
-// guarded dengan array kosong berarti kita bisa mengisi seluruh kolom pada model
-protected $guarded = [];
+use HasFactory;
+    
+    // Mengizinkan field ini diisi secara massal (Mass Assignment)
+    protected $fillable = ['kode_matkul', 'nama_matkul', 'sks', 'semester'];
 }
